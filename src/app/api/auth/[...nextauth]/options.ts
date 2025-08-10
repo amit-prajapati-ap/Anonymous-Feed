@@ -16,10 +16,7 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials: any): Promise<any>{
         await dbConnect();
         try {
-          const user = await User.findOne({$or: [
-            {email: credentials.email},
-            {username: credentials.username}
-          ]})
+          const user = await User.findOne({email: credentials.email})
 
           if (!user) {
             throw new Error("User not found")

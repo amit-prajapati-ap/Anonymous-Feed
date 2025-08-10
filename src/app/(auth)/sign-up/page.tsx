@@ -90,7 +90,7 @@ const page = () => {
               <FormItem>
                 <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input placeholder='username' {...field} onChange={e => {
+                  <Input required placeholder='username' {...field} onChange={e => {
                     field.onChange(e)
                     debounced(e.target.value)
                   }}/>
@@ -106,7 +106,7 @@ const page = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder='email' {...field} />
+                  <Input required placeholder='email' {...field} />
                 </FormControl>
                 <FormMessage/>
               </FormItem>
@@ -115,7 +115,7 @@ const page = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input type='password' placeholder='password' {...field} />
+                  <Input required type='password' placeholder='password' {...field} />
                 </FormControl>
                 <FormMessage/>
               </FormItem>
