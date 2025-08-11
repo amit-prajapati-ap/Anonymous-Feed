@@ -9,6 +9,7 @@ const Navbar = () => {
   const {data: session} = useSession()
 
   const user: User = session?.user as User
+  
   return (
     <nav className="p-4 md:px-6 shadow-md">
       <div className="mx-auto container flex flex-col md:flex-row justify-between items-center">
@@ -20,7 +21,7 @@ const Navbar = () => {
               <Button className="w-full md:w-auto" onClick={() => signOut()}>Logout</Button>
             </>
           ) : (
-            <Link href={'/sign-in'}><Button className="w-full md:w-auto">Login</Button></Link>
+            <Link href={'/sign-in'}><button className="w-full md:w-auto cursor-pointer">Login</button></Link>
           )
         }
       </div>

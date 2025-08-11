@@ -35,8 +35,8 @@ export async function GET(req: Request) {
     ])
 
     if (!userMessages || userMessages.length === 0) {
-      console.log("User not found");
-      return Response.json({ success: false, message: "User not found" }, { status: 404 });
+      console.log("No messages found");
+      return Response.json({ success: false, message: "No messages found" }, { status: 404 });
     } 
 
     console.log(userMessages)
