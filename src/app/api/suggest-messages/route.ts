@@ -14,7 +14,7 @@ export async function POST(req: Request) {
       prompt,
     });
 
-    const text = response?.text
+    const text = response?.text || ''
 
     if (!text) {
       throw new Error("Failed to generate text")   

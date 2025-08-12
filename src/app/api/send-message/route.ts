@@ -7,6 +7,7 @@ export async function POST(req: Request) {
 
   try {
     const {username, content} = await req.json();
+    console.log(username, content)
 
     const user = await User.findOne({username});
 
@@ -18,6 +19,16 @@ export async function POST(req: Request) {
     if (!user.isAcceptingMessage) {
       console.log("User is not accepting messages");
       return Response.json({success: false, message: "User is not accepting messages"}, {status: 400})
+    }
+
+    if (content.trim().length <= 20) {
+      console.log("Message should be minimum 20 characters");
+      return Response.json({success: false, message: "Message should be minimum 20 characters"}, {status: 400})      
+    }
+
+    if (content.trim().length > 300) {
+      console.log("Message should be maximum 300 characters");
+      return Response.json({success: false, message: "Message should be maximum 300 characters"}, {status: 400})   
     }
 
     const newMessage = {

@@ -40,11 +40,6 @@ export default function Home() {
           <CarouselNext />
         </Carousel>
       </main>
-      <footer>
-        <p className="text-center text-sm">
-          &copy; 2023 Anonymous Feed. All rights reserved.
-        </p>
-      </footer>
     </>
   );
 }
