@@ -14,7 +14,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import * as z from "zod"
 
-const page = () => {
+const Page = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const router = useRouter()
   const params = useParams<{ username: string }>()
@@ -76,4 +76,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
