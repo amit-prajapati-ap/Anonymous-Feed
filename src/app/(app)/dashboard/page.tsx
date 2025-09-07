@@ -91,7 +91,7 @@ const Page = () => {
 
   const user: User = session?.user as User
   console.log(session)
-  const baseUrl = `${window.location.protocol}//${window.location.host}`
+  const baseUrl = typeof window !== "undefined" ? `${window.location.protocol}//${window.location.host}` : "";
   const profileUrl = `${baseUrl}/me/${user?.username || ''}`
 
   const copyToClipboard = () => {
