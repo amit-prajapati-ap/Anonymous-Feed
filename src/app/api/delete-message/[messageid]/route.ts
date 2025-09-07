@@ -4,8 +4,10 @@ import dbConnect from "@/lib/dbConnect";
 import User from "@/model/User.model";
 import { User as NextAuthUser } from "next-auth";
 
-export async function DELETE(req: Request, params: unknown) {
-  const messageId = params.messageid
+export async function DELETE(req: Request, { params }: { params: { [key: string]: string | string[] }}) {
+  const raw = params.messageid;
+  const messageId = Array.isArray(raw) ? raw[0] : raw;
+  console.log(messageId)
   await dbConnect()
 
   try {
