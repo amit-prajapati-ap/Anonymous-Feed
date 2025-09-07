@@ -22,7 +22,7 @@ export default function Home() {
 
         <Carousel plugins={[Autoplay({ delay: 2000 })]} className="w-full max-w-xs">
           <CarouselContent>
-            {messages.map((message: any, index: number) => (
+            {messages.map((message: unknown, index: number) => (
               <CarouselItem key={index}>
                 <div className="p-1">
                   <Card>

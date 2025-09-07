@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 import { toast } from "sonner"
 import { suggestedMessagesDemo } from "../../../assets/suggestedMessages"
 
-const page = () => {
+const Page = () => {
   const params = useParams<{ username: string }>()
   const username = params.username
   const [suggestedMessages, setSuggestedMessages] = useState<string[]>([])
@@ -91,4 +91,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
