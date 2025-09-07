@@ -1,5 +1,5 @@
 import { NextAuthOptions } from "next-auth";
-import CredentialsProvider, {CredentialsProviderType} from "next-auth/providers/credentials";
+import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import dbConnect from "@/lib/dbConnect";
 import User from "@/model/User.model";
@@ -13,7 +13,7 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" }
       },
-      async authorize(credentials: any): Promise<any>{
+      async authorize(credentials: unknown): Promise<unknown>{
         await dbConnect();
         try {
           const user = await User.findOne({email: credentials.email})
@@ -33,14 +33,14 @@ export const authOptions: NextAuthOptions = {
           } else {
             throw new Error("Incorrect password")
           }
-        } catch (error: any) {
+        } catch (error: unknown) {
           throw new Error(error)
         }
       }
     })
   ],
   callbacks: {
-    async session({session, token}: any) {
+    async session({session, token}: unknown) {
       if (token) {
         session.user._id = token._id
         session.user.isVerified = token.isVerified
@@ -49,7 +49,7 @@ export const authOptions: NextAuthOptions = {
       }
       return session
     },
-    async jwt({token, user}: any) {
+    async jwt({token, user}: unknown) {
       if (user) {
         token._id = user._id?.toString()
         token.isVerified = user.isVerified
